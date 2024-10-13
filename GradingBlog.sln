@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.WebApi", "GradingBlog.WebApi\GradingBlog.WebApi.csproj", "{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Application", "GradingBlog.Application\GradingBlog.Application.csproj", "{B1961BE6-3144-42C0-AB06-415A0C852732}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.DataLayer", "GradingBlog.DataLayer\GradingBlog.DataLayer.csproj", "{08A87B9E-E35B-4775-B81F-AB24200B42FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1961BE6-3144-42C0-AB06-415A0C852732}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1961BE6-3144-42C0-AB06-415A0C852732}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1961BE6-3144-42C0-AB06-415A0C852732}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1961BE6-3144-42C0-AB06-415A0C852732}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A87B9E-E35B-4775-B81F-AB24200B42FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A87B9E-E35B-4775-B81F-AB24200B42FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A87B9E-E35B-4775-B81F-AB24200B42FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A87B9E-E35B-4775-B81F-AB24200B42FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
