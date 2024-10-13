@@ -6,6 +6,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Application", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.DataLayer", "GradingBlog.DataLayer\GradingBlog.DataLayer.csproj", "{08A87B9E-E35B-4775-B81F-AB24200B42FD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{3532CA54-03E7-47C6-8D72-A1CA18A435E6}"
+	ProjectSection(SolutionItems) = preProject
+		adr-blog-design-decisions.md = adr-blog-design-decisions.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
