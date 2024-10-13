@@ -9,6 +9,11 @@ public sealed class DataContext : DbContext
     {
     }
 
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        builder.ApplyConfigurationsFromAssembly(assembly: typeof(DataContext).Assembly);
+    }
+
     public DbSet<Post> Posts { get; set; }
 
     public DbSet<Comment> Comments { get; set; }

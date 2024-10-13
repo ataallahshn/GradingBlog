@@ -1,10 +1,10 @@
-using System.Text.Json;
 using GradingBlog.Application.Posts.Dtos.Request;
 using GradingBlog.Application.Posts.Dtos.Response;
 using GradingBlog.DataLayer;
 using GradingBlog.DataLayer.Posts;
 using GradingBlog.Seedwork.Guards;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace GradingBlog.Application.Posts.Services;
 
@@ -29,8 +29,8 @@ public sealed class PostService(DataContext dataContext) : IPostService
 
         var postHistory = new PostHistory(
             post!.Id,
-            JsonSerializer.Serialize(post),
-            JsonSerializer.Serialize(updatePostRequestDto),
+            JsonConvert.SerializeObject(post),
+            JsonConvert.SerializeObject(updatePostRequestDto),
             DateTime.Now);
 
         post!.Title = updatePostRequestDto.Title;

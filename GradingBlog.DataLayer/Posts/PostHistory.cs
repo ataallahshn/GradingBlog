@@ -1,8 +1,6 @@
-using GradingBlog.Seedwork.Entities;
-
 namespace GradingBlog.DataLayer.Posts;
 
-public sealed class PostHistory : Entity<long>
+public sealed class PostHistory
 {
     public PostHistory(long postId, string from, string to, DateTime changedOn)
     {
@@ -16,6 +14,8 @@ public sealed class PostHistory : Entity<long>
     {
     }
 
+    public long Id { get; set; }
+
     public string From { get; }
 
     public string To { get; }
@@ -24,5 +24,5 @@ public sealed class PostHistory : Entity<long>
 
     public long PostId { get; }
 
-    public Post Post { get; }
+    public Post Post { get; set; }
 }

@@ -1,9 +1,8 @@
-using GradingBlog.Seedwork.Entities;
 using GradingBlog.Seedwork.Guards;
 
 namespace GradingBlog.DataLayer.Posts;
 
-public sealed class Post : Entity<long>
+public sealed class Post
 {
     public Post(string title, string content)
     {
@@ -21,6 +20,8 @@ public sealed class Post : Entity<long>
     private Post()
     {
     }
+
+    public long Id { get; set; }
 
     public string Title { get; set; }
 
