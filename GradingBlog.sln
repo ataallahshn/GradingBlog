@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Seedwork", "Seedwork", "{DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Seedwork", "GradingBlog.Seedwork\GradingBlog.Seedwork.csproj", "{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.UnitTest", "GradingBlog.UnitTest\GradingBlog.UnitTest.csproj", "{573CC365-AFE3-4D2D-A701-9E451BAE0668}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{573CC365-AFE3-4D2D-A701-9E451BAE0668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{573CC365-AFE3-4D2D-A701-9E451BAE0668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{573CC365-AFE3-4D2D-A701-9E451BAE0668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{573CC365-AFE3-4D2D-A701-9E451BAE0668}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0FA45342-0DE7-4A66-9EE6-8B525FA423DA} = {DCF4F0FF-1ED9-405F-91C3-69CE59191084}
