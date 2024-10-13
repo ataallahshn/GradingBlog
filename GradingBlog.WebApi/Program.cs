@@ -1,9 +1,18 @@
+using GradingBlog.Application;
+using GradingBlog.Application.Posts.Dtos.Request;
+using GradingBlog.Application.Posts.Dtos.Response;
+using GradingBlog.Application.Posts.Services;
+using GradingBlog.DataLayer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddApplicationDependencies();
+builder.Services.AddDataLayerDependencies(builder.Configuration);
 
 var app = builder.Build();
 
@@ -16,29 +25,54 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
+app.MapPost("/posts", async (
+        [AsParameters] CreatePostRequestDto createPostRequestDto,
+        IPostService postService,
+        CancellationToken ct) =>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
+        var result = await postService.CreatePost(createPostRequestDto, ct);
+
+        return result;
     })
-    .WithName("GetWeatherForecast")
+    .WithOpenApi();
+
+app.MapGet("/posts", async (
+        IPostService postService,
+        CancellationToken ct) =>
+    {
+        var result = await postService.GetPostList(ct);
+
+        return result;
+    })
+    .Produces<List<GetPostListResponseDto>>()
+    .WithOpenApi();
+
+app.MapPost("/posts/{postId}/comments", async (
+        long postId,
+        string text,
+        IPostService postService,
+        CancellationToken ct) =>
+    {
+        var createCommentRequestDto = new CreateCommentRequestDto
+        {
+            PostId = postId,
+            Text = text
+        };
+
+        var result = await postService.CreateComment(createCommentRequestDto, ct);
+
+        return result;
+    })
+    .WithOpenApi();
+
+app.MapPut("/posts", async (
+        [AsParameters] UpdatePostRequestDto updatePostRequestDto,
+        IPostService postService,
+        CancellationToken ct) =>
+    {
+        await postService.UpdatePost(updatePostRequestDto, ct);
+    })
     .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
