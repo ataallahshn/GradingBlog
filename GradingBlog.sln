@@ -11,10 +11,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Seedwork", "GradingBlog.Seedwork\GradingBlog.Seedwork.csproj", "{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.UnitTest", "GradingBlog.UnitTest\GradingBlog.UnitTest.csproj", "{573CC365-AFE3-4D2D-A701-9E451BAE0668}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{3532CA54-03E7-47C6-8D72-A1CA18A435E6}"
 	ProjectSection(SolutionItems) = preProject
 		adr-blog-design-decisions.md = adr-blog-design-decisions.md
 		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A33CA518-81CE-44DE-BB9E-6FE5FE149A8C}"
+	ProjectSection(SolutionItems) = preProject
+		script.sql = script.sql
 	EndProjectSection
 EndProject
 Global
