@@ -1,4 +1,4 @@
-namespace GradingBlog.Application.Posts.Dtos.Request;
+namespace GradingBlog.DataLayer.Posts.Dtos.Request;
 
 public sealed class UpdatePostRequestDto
 {

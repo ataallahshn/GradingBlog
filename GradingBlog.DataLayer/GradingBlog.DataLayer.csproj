@@ -20,6 +20,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\GradingBlog.Seedwork\GradingBlog.Seedwork.csproj" />
+      <ProjectReference Include="..\Seedwork\GradingBlog.Seedwork\GradingBlog.Seedwork.csproj" />
     </ItemGroup>
 
 </Project>

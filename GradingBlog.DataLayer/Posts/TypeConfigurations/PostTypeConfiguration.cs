@@ -1,7 +1,8 @@
+using GradingBlog.DataLayer.Posts.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace GradingBlog.DataLayer.Posts;
+namespace GradingBlog.DataLayer.Posts.TypeConfigurations;
 
 public sealed class PostTypeConfiguration : IEntityTypeConfiguration<Post>
 {

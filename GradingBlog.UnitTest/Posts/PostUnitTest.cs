@@ -1,4 +1,5 @@
 using GradingBlog.DataLayer.Posts;
+using GradingBlog.DataLayer.Posts.Entities;
 
 namespace GradingBlog.UnitTest.Posts;
 

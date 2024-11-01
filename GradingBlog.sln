@@ -2,13 +2,13 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.WebApi", "GradingBlog.WebApi\GradingBlog.WebApi.csproj", "{1A2032C6-9AFD-4DB6-8E57-0393EEC3F10C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Application", "GradingBlog.Application\GradingBlog.Application.csproj", "{B1961BE6-3144-42C0-AB06-415A0C852732}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Services", "GradingBlog.Services\GradingBlog.Services.csproj", "{B1961BE6-3144-42C0-AB06-415A0C852732}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.DataLayer", "GradingBlog.DataLayer\GradingBlog.DataLayer.csproj", "{08A87B9E-E35B-4775-B81F-AB24200B42FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Seedwork", "Seedwork", "{DCF4F0FF-1ED9-405F-91C3-69CE59191084}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Seedwork", "GradingBlog.Seedwork\GradingBlog.Seedwork.csproj", "{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.Seedwork", "Seedwork\GradingBlog.Seedwork\GradingBlog.Seedwork.csproj", "{0FA45342-0DE7-4A66-9EE6-8B525FA423DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradingBlog.UnitTest", "GradingBlog.UnitTest\GradingBlog.UnitTest.csproj", "{573CC365-AFE3-4D2D-A701-9E451BAE0668}"
 EndProject

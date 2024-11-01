@@ -1,3 +1,4 @@
+using GradingBlog.DataLayer.Posts.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,7 +10,18 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
         => services
-            .AddSqlServer(configuration);
+            .AddSqlServer(configuration)
+            .AddUnitOfWork()
+            .AddRepositories();
+
+    private static IServiceCollection AddUnitOfWork(this IServiceCollection services)
+        => services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+    private static IServiceCollection AddRepositories(this IServiceCollection services)
+        => services
+            .AddScoped<IPostRepository, PostRepository>()
+            .AddScoped<IPostHistoryRepository, PostHistoryRepository>()
+            .AddScoped<ICommentRepository, CommentRepository>();
 
     private static IServiceCollection AddSqlServer(
         this IServiceCollection services,
