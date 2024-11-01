@@ -1,9 +1,20 @@
+using GradingBlog.Services;
+using GradingBlog.Services.Posts.Services;
+using GradingBlog.DataLayer;
+using GradingBlog.DataLayer.Posts.Dtos.Response;
+using GradingBlog.Services.Posts.Command.CreateComment;
+using GradingBlog.Services.Posts.Command.CreatePost;
+using GradingBlog.Services.Posts.Command.UpdatePost;
+using GradingBlog.Services.Posts.Query.GetPostListQuery;
+using MediatR;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddApplicationDependencies();
+builder.Services.AddDataLayerDependencies(builder.Configuration);
 
 var app = builder.Build();
 
@@ -16,29 +27,41 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
 
-app.MapGet("/weatherforecast", () =>
+app.MapPost("/posts", async (
+        [AsParameters] CreatePostCommand command,
+        IMediator mediator,
+        CancellationToken ct) =>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
-                new WeatherForecast
-                (
-                    DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                    Random.Shared.Next(-20, 55),
-                    summaries[Random.Shared.Next(summaries.Length)]
-                ))
-            .ToArray();
-        return forecast;
+        return await mediator.Send(command, ct);
     })
-    .WithName("GetWeatherForecast")
+    .WithOpenApi();
+
+app.MapGet("/posts", async (
+        IMediator mediator,
+        CancellationToken ct) =>
+    {
+        return await mediator.Send(new GetPostListQuery(), ct);
+    })
+    .Produces<List<GetPostListResponseDto>>()
+    .WithOpenApi();
+
+app.MapPost("/posts/{postId}/comments", async (
+        [AsParameters] CreateCommentCommand command,
+        IMediator mediator,
+        CancellationToken ct) =>
+    {
+        return await mediator.Send(command, ct);
+    })
+    .WithOpenApi();
+
+app.MapPut("/posts", async (
+        [AsParameters] UpdatePostCommand command,
+        IMediator mediator,
+        CancellationToken ct) =>
+    {
+        await mediator.Send(command, ct);
+    })
     .WithOpenApi();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
