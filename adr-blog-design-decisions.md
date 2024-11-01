@@ -21,23 +21,15 @@ The system needs to store a history of post changes when updates occur.
     - **EF Core** is used for data access, managing database interactions, and performing CRUD operations.
     - **Reason**: EF Core simplifies interaction with the database through LINQ and provides the necessary functionality for this project's needs without the overhead of writing raw SQL.
 
-3. **Repository and Unit of Work Patterns**:
-    - **Not Implemented Explicitly**: Instead, the **DbContext** is treated as the repository and unit of work.
-    - **Reason**: Using dedicated repository and unit of work classes would add unnecessary layers of abstraction. EF Core's DbContext naturally manages object tracking, transaction management, and CRUD operations, which aligns with the project's simplicity.
-
-4. **Design Patterns**:
-    - **No Additional Design Patterns** were used (e.g., Mediator pattern).
-    - **Reason**: The problem is simple enough to manage without the complexity of design patterns like the Mediator. The focus is on keeping the design lightweight and easy to maintain.
-
-5. **Unit Testing**:
+3. **Unit Testing**:
     - **xUnit** is used for unit testing.
     - **Reason**: xUnit is a well-supported testing framework for .NET, making it suitable for testing the core functionality without introducing extra overhead.
 
-6. **Cross-Cutting Concerns**:
+4. **Cross-Cutting Concerns**:
     - A **Seedwork Layer** is used for handling common concerns across different layers.
     - **Reason**: This layer helps avoid code duplication and centralizes common functionality like guards, logging, and validation.
 
-7. **Clean Code Practices**:
+5. **Clean Code Practices**:
     - A **Guard Class** is used to ensure validation and error handling follows clean code principles.
     - **Reason**: This promotes code readability, maintainability, and a consistent way of handling validation across the project.
 

@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\GradingBlog.Application\GradingBlog.Application.csproj" />
+      <ProjectReference Include="..\GradingBlog.Services\GradingBlog.Services.csproj" />
       <ProjectReference Include="..\GradingBlog.DataLayer\GradingBlog.DataLayer.csproj" />
     </ItemGroup>
 

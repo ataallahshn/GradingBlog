@@ -1,13 +1,15 @@
-using GradingBlog.Application;
-using GradingBlog.Application.Posts.Dtos.Request;
-using GradingBlog.Application.Posts.Dtos.Response;
-using GradingBlog.Application.Posts.Services;
+using GradingBlog.Services;
+using GradingBlog.Services.Posts.Services;
 using GradingBlog.DataLayer;
+using GradingBlog.DataLayer.Posts.Dtos.Response;
+using GradingBlog.Services.Posts.Command.CreateComment;
+using GradingBlog.Services.Posts.Command.CreatePost;
+using GradingBlog.Services.Posts.Command.UpdatePost;
+using GradingBlog.Services.Posts.Query.GetPostListQuery;
+using MediatR;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -27,51 +29,38 @@ app.UseHttpsRedirection();
 
 
 app.MapPost("/posts", async (
-        [AsParameters] CreatePostRequestDto createPostRequestDto,
-        IPostService postService,
+        [AsParameters] CreatePostCommand command,
+        IMediator mediator,
         CancellationToken ct) =>
     {
-        var result = await postService.CreatePost(createPostRequestDto, ct);
-
-        return result;
+        return await mediator.Send(command, ct);
     })
     .WithOpenApi();
 
 app.MapGet("/posts", async (
-        IPostService postService,
+        IMediator mediator,
         CancellationToken ct) =>
     {
-        var result = await postService.GetPostList(ct);
-
-        return result;
+        return await mediator.Send(new GetPostListQuery(), ct);
     })
     .Produces<List<GetPostListResponseDto>>()
     .WithOpenApi();
 
 app.MapPost("/posts/{postId}/comments", async (
-        long postId,
-        string text,
-        IPostService postService,
+        [AsParameters] CreateCommentCommand command,
+        IMediator mediator,
         CancellationToken ct) =>
     {
-        var createCommentRequestDto = new CreateCommentRequestDto
-        {
-            PostId = postId,
-            Text = text
-        };
-
-        var result = await postService.CreateComment(createCommentRequestDto, ct);
-
-        return result;
+        return await mediator.Send(command, ct);
     })
     .WithOpenApi();
 
 app.MapPut("/posts", async (
-        [AsParameters] UpdatePostRequestDto updatePostRequestDto,
-        IPostService postService,
+        [AsParameters] UpdatePostCommand command,
+        IMediator mediator,
         CancellationToken ct) =>
     {
-        await postService.UpdatePost(updatePostRequestDto, ct);
+        await mediator.Send(command, ct);
     })
     .WithOpenApi();
 

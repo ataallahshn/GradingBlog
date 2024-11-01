@@ -1,4 +1,4 @@
-namespace GradingBlog.Application.Posts.Dtos.Response;
+namespace GradingBlog.DataLayer.Posts.Dtos.Response;
 
 public sealed class GetPostListResponseDto
 {

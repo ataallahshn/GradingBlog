@@ -1,4 +1,4 @@
-namespace GradingBlog.DataLayer.Posts;
+namespace GradingBlog.DataLayer.Posts.Entities;
 
 public sealed class PostHistory
 {
